@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+</head>
+<body>
+<center>
+    <button><a href="/book/">Back</a> </button>
+        <h3>Название книги</h3>
+    <h1>{{show_object.title}}</h1>
+    <img src="{{show_object.image.url}}" alt="" width="200" height="200">
+        <h3>Автор</h3>
+    <p>{{show_object.author}}</p>
+        <h3>Описание</h3>
+    <p><b>{{show_object.description}}</b></p>
+        <h3>Дата выхода статьи</h3>
+    <p><i>{{show_object.created_date}}</i></p>
+        <h3>Дата обновления статьи</h3>
+    <p><i>{{show_object.updated_date}}</i></p>
+</center>
+</body>
+</html>

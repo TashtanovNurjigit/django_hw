@@ -8,10 +8,11 @@
 <center>
     {% for i in post_object %}
         <h1>{{i.title}}</h1>
-    <img src="{{i.image.url}}" alt="" width="200" height="200">
-    <p>{{i.description}}</p>
-    <p>{{i.created.date}}</p>
-    <p>{{i.updated.date}}</p>
+        <img src="{{i.image.url}}" alt="" width="200" height="200">
+        <br>
+        <button><a href="/book_details/{{i.id}}">More</a></button>
+        <hr>
+        <br>
     {% endfor %}
 </center>
 </body>
