@@ -1,23 +1,37 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Book Details</title>
+    <link rel="stylesheet" href="{% static 'css/style_details.css' %}">
 </head>
 <body>
 <center>
-    <button><a href="/book/">Back</a> </button>
-        <h3>Название книги</h3>
-    <h1>{{show_object.title}}</h1>
-    <img src="{{show_object.image.url}}" alt="" width="200" height="200">
-        <h3>Автор</h3>
-    <p>{{show_object.author}}</p>
-        <h3>Описание</h3>
-    <p><b>{{show_object.description}}</b></p>
-        <h3>Дата выхода статьи</h3>
-    <p><i>{{show_object.created_date}}</i></p>
-        <h3>Дата обновления статьи</h3>
-    <p><i>{{show_object.updated_date}}</i></p>
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <h1>{{show_object.title}}</h1>
+                <div class="post-meta">
+                    <span class="author">{{show_object.author}}</span>
+                    <span class="category">{{show_object.genre}}</span>
+                </div>
+            </div>
+            <div class="post-image">
+                <img src="{{show_object.image.url}}">
+            </div>
+            <div class="post-content">
+                <p>{{show_object.description}}</p>
+            </div>
+            <div class="post-meta">
+                <span class="author">{{show_object.created_date}}</span>
+                <span class="category">{{show_object.updated_date}}</span>
+            </div>
+        </div>
+    </div>
+    <a href="/book/" class="arrow-btn">Back<span></span></a>
 </center>
 </body>
 </html>
+
+
