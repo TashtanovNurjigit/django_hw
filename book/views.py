@@ -23,3 +23,21 @@ def add_book_views(request):
         form = forms.ShowForm()
 
     return render(request, 'create_book.html', {'form': form})
+
+
+def update_book(request, id):
+    show_object = get_object_or_404(models.Post, id=id)
+    if request.method == 'POST':
+        form = forms.ShowForm(instance=show_object, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('<h1>Пост успешно обновлен</h1>')
+    else:
+        form = forms.ShowForm(instance=show_object)
+    return render(request, 'book_update.html', {'form': form, 'object': show_object})
+
+
+def delete_book(request, id):
+    show_object = get_object_or_404(models.Post, id=id)
+    show_object.delete()
+    return HttpResponse('<h1>Пост успешно удален</h1>')
