@@ -1,11 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . import models, forms
+from django.views import generic
 
 
-def book_view(request):
-    post = models.Post.objects.all()
-    return render(request, 'book.html', {'post_object': post})
+class BookView(generic.ListView):
+    template_name = 'book.html'
+    queryset = models.Post.objects.all()
+
+    def get_queryset(self):
+        return models.Post.objects.all()
+# def book_view(request):
+#     post = models.Post.objects.all()
+#     return render(request, 'book.html', {'post_object': post})
 
 
 def book_details_view(request, id):
